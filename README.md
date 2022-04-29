@@ -1,6 +1,6 @@
 # Projet 4
 
-- Se rendre sur le repo URL_DU_REPO
+- Se rendre sur le repo https://github.com/weekendatchewie/p4_chess_tournament
 - Cloner ou télécharger le repo
 - Créer un environnement virtuel :
     ```
