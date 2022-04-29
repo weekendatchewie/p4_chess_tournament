@@ -88,7 +88,6 @@ class Tournament:
 
     def get_serialized_tournament(self, save_rounds=False):
 
-        # Si sauvegarde juste après création, les rounds ne sont pas encore créés.
         serialized_tournament = {
             "name": self.name,
             "location": self.location,
@@ -100,7 +99,7 @@ class Tournament:
             "description": self.description
         }
 
-        # if save_rounds:
-        #     serialized_tournament["rounds"] = [round.get_serialized_round() for round in self.rounds]
+        if save_rounds:
+            serialized_tournament["rounds"] = [round.get_serialized_round() for round in self.list_round]
 
         return serialized_tournament

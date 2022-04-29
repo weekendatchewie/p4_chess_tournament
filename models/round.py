@@ -21,8 +21,7 @@ class Round:
 
     def create_matchs(self):
         matchs = []
-        # for i, pair in enumerate(self.players_pairs):
-        #     matchs.append(Match(name=f"Match {i}", players_pair=pair))
+
         for players in self.players_pairs:
             matchs.append(Match(players[0], players[1]))
         return matchs

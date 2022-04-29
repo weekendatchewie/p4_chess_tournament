@@ -1,9 +1,9 @@
 from models.tournament import Tournament
 from views.view import View
-from views.tournament import CreateTournament, LoadTournament
+from views.tournament import CreateTournament
 from views.player import LoadPlayer
 from controller.player import create_player, update_rankings
-from controller.database import save_db, update_db, load_player, load_tournament
+from controller.database import save_db, update_db, load_player
 
 
 def create_tournament():
@@ -96,11 +96,11 @@ def play_tournament(tournament, new_tournament_loaded=False):
                                 "1 - Voir les classements\n"
                                 "2 - Mettre à jour les classements\n"
                                 "3 - Sauvegarder le tournoi\n"
-                                "4 - Charger un tournoi\n"
+                                "Q - Quitter\n"
                                 ">>> ",
                     msg_error="Veuillez faire un choix.",
                     value_type="selection",
-                    assertions=["0", "1", "2", "3", "4"]
+                    assertions=["0", "1", "2", "3", "q", "Q"]
                 )
 
                 if user_input == "0":
@@ -129,11 +129,8 @@ def play_tournament(tournament, new_tournament_loaded=False):
                                 t_player.rank = str(j + 1)
                     update_db("tournaments", tournament.get_serialized_tournament(save_rounds=True))
 
-                elif user_input == "4":
-                    serialized_loaded_tournament = LoadTournament().display_menu()
-                    tournament = load_tournament(serialized_loaded_tournament)
-                    new_tournament_loaded = True
-                    break
+                elif user_input.upper() == "Q":
+                    quit()
 
             if new_tournament_loaded:
                 break

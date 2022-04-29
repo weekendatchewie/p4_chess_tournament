@@ -11,10 +11,6 @@ class Report(View):
 
     def display_players_report(self, players=[]):
 
-        # Si on veux afficher les joueurs classés d'un tournoi en particulier, on passe True à
-        # tournaments_player et on donne une liste de joueurs en arguement.
-        # Si on ne précise rien, c'est tout les joueurs enregistrés dans la bdd qui seront chargés.
-
         players = players
 
         build_selection = self.build_selection(iterable=players, display_msg="Voir les détails d'un joueur :\n",
@@ -37,7 +33,6 @@ class Report(View):
             else:
                 selected_player = players[int(user_input) - 1]
 
-                # Affichage des détails du joueur
                 while True:
                     print(f"Détails du joueur {selected_player['name']}:")
                     print(f"Classement: {selected_player['rating']}\n"
@@ -69,9 +64,6 @@ class Report(View):
 
         while True:
             print("Tournois :")
-
-            # Affichage de tout les tournois
-            # Choix d'un tournoi afin d'en voir les détails
 
             user_input = self.get_user_entry(
                 msg_display=build_selection['msg'] + "r - Retour\n"
