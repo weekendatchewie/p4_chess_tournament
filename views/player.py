@@ -52,6 +52,11 @@ class LoadPlayer(View):
         all_players = load_db("players")
         serialized_loaded_players = []
         for i in range(nb_players_to_load):
+
+            if not all_players:
+                print("Oups... Aucun joueur n'est enregistré dans la base")
+                break
+
             print(f"Plus que {str(nb_players_to_load - i)} joueur(s) à charger")
             display_msg = "Choisir un joueur :\n"
 

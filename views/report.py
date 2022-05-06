@@ -63,6 +63,11 @@ class Report(View):
         )
 
         while True:
+
+            if not self.tournaments:
+                print("Oups.. Aucun tournoi n'est enregistré dans la base")
+                break
+
             print("Tournois :")
 
             user_input = self.get_user_entry(
@@ -93,7 +98,7 @@ class Report(View):
                         msg_display="Que faire ?\n"
                                     "0 - Voir les participants\n"
                                     "1 - Voir les tours\n"
-                                    "R - Retour\n>>> ",
+                                    "r - Retour\n>>> ",
                         msg_error="Veuillez entrer une sélection valide",
                         value_type="selection",
                         assertions=["0", "1", "2", "r", "R"]

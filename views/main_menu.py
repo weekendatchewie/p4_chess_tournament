@@ -55,7 +55,7 @@ class MainMenu(View):
                     user_input = self.get_user_entry(
                         msg_display="0 - Joueurs\n"
                                     "1 - Tournois\n"
-                                    "R - Retour\n"
+                                    "r - Retour\n"
                                     ">>> ",
                         msg_error="Veuillez faire un choix valide.",
                         value_type="selection",
@@ -81,9 +81,15 @@ class MainMenu(View):
                                 break
                             elif user_input == "0":
                                 sorted_players = Report().sort_players(Report().players, by_rank=True)
+                                if not sorted_players:
+                                    print("Oups... Aucun joueur n'est enregistré dans la base")
+                                    break
                                 Report().display_players_report(players=sorted_players)
                             elif user_input == "1":
                                 sorted_players = Report().sort_players(Report().players, by_rank=False)
+                                if not sorted_players:
+                                    print("Oups... Aucun joueur n'est enregistré dans la base")
+                                    break
                                 Report().display_players_report(players=sorted_players)
 
                     elif user_input == "1":

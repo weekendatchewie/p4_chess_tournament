@@ -41,6 +41,8 @@ def update_player_rank(db_name, serialized_data):
 
 
 def load_db(db_name):
+    if not Path("data/").exists():
+        Path("data/").mkdir()
     db = TinyDB(f"data/{db_name}.json")
     return db.all()
 
