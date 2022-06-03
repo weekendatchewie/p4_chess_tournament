@@ -195,7 +195,7 @@ class Report(View):
                                 print(f"Détails du {selected_match['name']}\n"
                                       f"Joueur 1 : " +
                                       f"{selected_match['player_1']['name']} ({selected_match['score_player_1']} pts)\n"
-                                      f"Joueur 2 ({selected_match['color_player2']}): " +
+                                      f"Joueur 2 : " +
                                       f"{selected_match['player_2']['name']} ({selected_match['score_player_2']} pts)\n"
                                       f"Gagnant: {selected_match['winner']}\n"
                                       )

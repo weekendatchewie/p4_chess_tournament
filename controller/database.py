@@ -115,7 +115,7 @@ def load_match(serialized_match, tournament):
         elif player.name == serialized_match["player_2"]["name"]:
             player_2 = player
 
-    loaded_match = Match(player_1, player_2)
+    loaded_match = Match(player_1, player_2, serialized_match['name'])
     loaded_match.score_player_1 = serialized_match["score_player_1"]
     loaded_match.score_player_2 = serialized_match["score_player_2"]
     loaded_match.winner = serialized_match["winner"]

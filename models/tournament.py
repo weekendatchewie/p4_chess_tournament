@@ -100,6 +100,6 @@ class Tournament:
         }
 
         if save_rounds:
-            serialized_tournament["rounds"] = [round.get_serialized_round() for round in self.list_round]
+            serialized_tournament["list_round"] = [round.get_serialized_round() for round in self.list_round]
 
         return serialized_tournament

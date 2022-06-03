@@ -22,8 +22,8 @@ class Round:
     def create_matchs(self):
         matchs = []
 
-        for players in self.players_pairs:
-            matchs.append(Match(players[0], players[1]))
+        for i, players in enumerate(self.players_pairs):
+            matchs.append(Match(players[0], players[1], f"Match {i}"))
         return matchs
 
     def mark_as_complete(self):

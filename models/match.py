@@ -3,7 +3,7 @@ from views.view import View
 
 class Match:
 
-    def __init__(self, player_1, player_2):
+    def __init__(self, player_1, player_2, name):
         """
         Un match unique doit être stocké sous la forme d'un tuple contenant deux listes, chacune contenant
         deux éléments : une référence à une instance de joueur et un score.
@@ -14,6 +14,7 @@ class Match:
         self.score_player_1 = 0
         self.score_player_2 = 0
         self.winner = None
+        self.name = name
 
     def player_winner(self, winner):
         if winner == self.player_1:
@@ -29,7 +30,7 @@ class Match:
             msg_display=f"{self.player_1.firstname} VS {self.player_2.firstname}\n"
                         "Gagnant ?\n"
                         f"0 - {self.player_1.firstname}\n"
-                        f"1 - {self.player_2.firstname})\n"
+                        f"1 - {self.player_2.firstname}\n"
                         "2 - Égalité\n"
                         ">>> ",
             msg_error="Veuillez entrer 0, 1 ou 2.",
@@ -58,4 +59,5 @@ class Match:
             "player_2": self.player_2.get_serialized_player(),
             "score_player_2": self.score_player_2,
             "winner": self.winner,
+            "name": self.name,
         }
